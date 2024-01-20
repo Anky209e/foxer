@@ -531,6 +531,7 @@ script = SubResource("GDScript_5b45n")
 script = SubResource("GDScript_di2df")
 
 [node name="Timer" type="Timer" parent="Items"]
+wait_time = 7.0
 autostart = true
 
 [connection signal="timeout" from="Items/Timer" to="Items" method="_on_timer_timeout"]
