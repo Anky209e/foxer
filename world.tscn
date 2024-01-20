@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://xskeledckqtc" path="res://Sunny-land-files/Graphical Assets/environment/Background/back.png" id="3_smrgu"]
 [ext_resource type="Texture2D" uid="uid://cuak6j6h8e0l2" path="res://Sunny-land-files/Graphical Assets/environment/tileset.png" id="4_5n8a0"]
 [ext_resource type="PackedScene" uid="uid://tv70v0fq36np" path="res://frog.tscn" id="5_xav8q"]
-[ext_resource type="PackedScene" uid="uid://cuftv02xx41cq" path="res://Items/cherry.tscn" id="6_xp8oy"]
 
 [sub_resource type="GDScript" id="GDScript_vgukh"]
 script/source = "extends Node2D
@@ -452,6 +451,20 @@ func _process(delta):
 	text = \"Gold:\" + str(Game.GOLD)
 "
 
+[sub_resource type="GDScript" id="GDScript_di2df"]
+script/source = "extends Node2D
+
+var cherry = preload(\"res://Items/cherry.tscn\")
+
+
+func _on_timer_timeout():
+	var cherryTemp = cherry.instantiate()
+	var rng = RandomNumberGenerator.new()
+	var randint = rng.randi_range(100,2170)
+	cherryTemp.position = Vector2(randint,525)
+	add_child(cherryTemp)
+"
+
 [node name="World" type="Node2D"]
 script = SubResource("GDScript_vgukh")
 
@@ -515,6 +528,9 @@ text = "Gold"
 script = SubResource("GDScript_5b45n")
 
 [node name="Items" type="Node2D" parent="."]
+script = SubResource("GDScript_di2df")
 
-[node name="Cherry" parent="Items" instance=ExtResource("6_xp8oy")]
-position = Vector2(152, 528)
+[node name="Timer" type="Timer" parent="Items"]
+autostart = true
+
+[connection signal="timeout" from="Items/Timer" to="Items" method="_on_timer_timeout"]
