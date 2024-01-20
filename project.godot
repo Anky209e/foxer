@@ -19,6 +19,12 @@ config/icon="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-
 
 Game="*res://Global/game.gd"
 Utils="*res://Global/utils.gd"
+Bg="*res://BG.tscn"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [rendering]
 
