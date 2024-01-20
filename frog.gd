@@ -58,6 +58,7 @@ func death():
 	Game.GOLD += 3
 	Utils.saveGame()
 	chase = false
+	$Blast.play()
 	get_node("AnimatedSprite2D").play("death")
 	await get_node("AnimatedSprite2D").animation_finished
 	self.queue_free()

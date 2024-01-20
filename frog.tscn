@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://tv70v0fq36np"]
+[gd_scene load_steps=25 format=3 uid="uid://tv70v0fq36np"]
 
 [ext_resource type="Script" path="res://frog.gd" id="1_f0rrd"]
 [ext_resource type="Texture2D" uid="uid://bb1u4afeqfvla" path="res://Sunny-land-files/Graphical Assets/spritesheets/enemy-deadth.png" id="1_t76d4"]
 [ext_resource type="Texture2D" uid="uid://bwnnb3gkdsilw" path="res://Sunny-land-files/Graphical Assets/spritesheets/frog-idle.png" id="2_t5s68"]
 [ext_resource type="Texture2D" uid="uid://402811yw735a" path="res://Sunny-land-files/Graphical Assets/spritesheets/frog-jump.png" id="3_nioax"]
+[ext_resource type="AudioStream" uid="uid://hmgmxsmtff0b" path="res://Audio/frog-croaks-22312.mp3" id="5_jed1m"]
+[ext_resource type="AudioStream" uid="uid://be8lavtl70pw6" path="res://Audio/sub-impact-6052.mp3" id="6_eafq5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_itj7w"]
 radius = 16.0
@@ -158,6 +160,15 @@ shape = SubResource("RectangleShape2D_cbe3y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_dlsqh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jed1m")
+autoplay = true
+max_distance = 500.0
+attenuation = 1.18921
+
+[node name="Blast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_eafq5")
 
 [connection signal="body_entered" from="FrogROA" to="." method="_on_frog_roa_body_entered"]
 [connection signal="body_exited" from="FrogROA" to="." method="_on_frog_roa_body_exited"]
