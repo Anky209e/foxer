@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://iaf7aquh6nab"]
+[gd_scene load_steps=4 format=3 uid="uid://iaf7aquh6nab"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2mjks"]
 [ext_resource type="PackedScene" uid="uid://ytw8p5r2snm8" path="res://BG.tscn" id="2_nuyng"]
+[ext_resource type="AudioStream" uid="uid://bxygw2sper3df" path="res://Audio/bg.mp3" id="3_pfbob"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2mjks")
@@ -25,6 +26,10 @@ tooltip_text = "Exits Game"
 text = "Exit"
 
 [node name="BG" parent="." instance=ExtResource("2_nuyng")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pfbob")
+autoplay = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

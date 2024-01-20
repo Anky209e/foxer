@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://odfraaqi78v3"]
+[gd_scene load_steps=24 format=3 uid="uid://odfraaqi78v3"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3lk5e"]
 [ext_resource type="Texture2D" uid="uid://dfsiev4ksw501" path="res://Sunny-land-files/Graphical Assets/spritesheets/player.png" id="2_5fpcu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://crtalygxus3oq" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-4.png" id="6_ar0ff"]
 [ext_resource type="Texture2D" uid="uid://l0tlaso71fg5" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-5.png" id="7_ntbrj"]
 [ext_resource type="Texture2D" uid="uid://bkxexx144dkiw" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" id="8_7ofiu"]
+[ext_resource type="PackedScene" uid="uid://ytw8p5r2snm8" path="res://BG.tscn" id="9_0u6w7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58dn6"]
 radius = 20.0
@@ -253,3 +254,5 @@ libraries = {
 "": SubResource("AnimationLibrary_jegpg")
 }
 autoplay = "idle"
+
+[node name="BG" parent="." instance=ExtResource("9_0u6w7")]
