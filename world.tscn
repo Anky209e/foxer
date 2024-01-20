@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://deu603wrb1wx"]
+[gd_scene load_steps=13 format=3 uid="uid://deu603wrb1wx"]
 
 [ext_resource type="PackedScene" uid="uid://odfraaqi78v3" path="res://player/player.tscn" id="1_3mgcu"]
 [ext_resource type="Script" path="res://BG.gd" id="2_mg42i"]
 [ext_resource type="Texture2D" uid="uid://xskeledckqtc" path="res://Sunny-land-files/Graphical Assets/environment/Background/back.png" id="3_smrgu"]
 [ext_resource type="Texture2D" uid="uid://cuak6j6h8e0l2" path="res://Sunny-land-files/Graphical Assets/environment/tileset.png" id="4_5n8a0"]
 [ext_resource type="PackedScene" uid="uid://tv70v0fq36np" path="res://frog.tscn" id="5_xav8q"]
+[ext_resource type="PackedScene" uid="uid://cuftv02xx41cq" path="res://Items/cherry.tscn" id="6_xp8oy"]
 
 [sub_resource type="GDScript" id="GDScript_vgukh"]
 script/source = "extends Node2D
@@ -434,7 +435,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	text = \"Health:\" + str(get_node(\"../../Player/Player\").health)
+	text = \"Health:\" + str(Game.PLAYER_HP)
+"
+
+[sub_resource type="GDScript" id="GDScript_5b45n"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \"Gold:\" + str(Game.GOLD)
 "
 
 [node name="World" type="Node2D"]
@@ -466,6 +481,15 @@ position = Vector2(80, 232)
 [node name="Frog" parent="Mobs" instance=ExtResource("5_xav8q")]
 position = Vector2(472, 448)
 
+[node name="Frog2" parent="Mobs" instance=ExtResource("5_xav8q")]
+position = Vector2(704, 304)
+
+[node name="Frog3" parent="Mobs" instance=ExtResource("5_xav8q")]
+position = Vector2(968, 424)
+
+[node name="Frog4" parent="Mobs" instance=ExtResource("5_xav8q")]
+position = Vector2(600, 160)
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HealthText" type="Label" parent="UI"]
@@ -476,4 +500,21 @@ offset_bottom = 36.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eybd4")
+text = "Health"
 script = SubResource("GDScript_1w5g6")
+
+[node name="Gold" type="Label" parent="UI"]
+offset_left = 224.0
+offset_top = 8.0
+offset_right = 392.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eybd4")
+text = "Gold"
+script = SubResource("GDScript_5b45n")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Cherry" parent="Items" instance=ExtResource("6_xp8oy")]
+position = Vector2(152, 528)
