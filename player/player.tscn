@@ -232,15 +232,18 @@ script = ExtResource("1_3lk5e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_58dn6")
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3.19318, 3.25801)
 sprite_frames = SubResource("SpriteFrames_3qjxg")
 animation = &"idle"
 frame = 2
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 2)
+offset = Vector2(0, -100)
 zoom = Vector2(1.3, 1.3)
 limit_left = 0
 limit_top = 0
